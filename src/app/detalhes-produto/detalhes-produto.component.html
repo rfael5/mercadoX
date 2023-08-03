@@ -1,0 +1,13 @@
+<div *ngIf="loading == false">
+    <div style="display:flex; flex-direction:column">
+        <img [src]="produto.imageUrl">
+        <span>{{produto.title}}</span>
+        <span>{{produto.description}}</span>
+        <span>{{produto.price}}</span>
+    </div>
+</div>
+
+<div *ngIf="loading == true">
+    <span>Carregando...</span>
+</div>
+

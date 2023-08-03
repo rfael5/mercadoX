@@ -1,0 +1,9 @@
+.product-box {
+    display:flex;
+    flex-direction: column;
+}
+
+.imagem-prod{
+    max-height: 200px;
+    max-width: 200px;
+}

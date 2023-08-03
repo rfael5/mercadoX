@@ -1,0 +1,9 @@
+.card-produto{
+    display:flex;
+    flex-direction:column;
+}
+
+img{
+    max-width:200px;
+    max-height:200px;
+}
