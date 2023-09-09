@@ -30,6 +30,7 @@ export class ProdutosCategoriaComponent implements OnInit {
       let categoriaProduto = this.rota.snapshot.params["pag"]
       console.log(categoriaProduto);
       this.buscarProdutosPorCategoria(categoriaProduto);
+      console.log(url);
     })
   }
 
