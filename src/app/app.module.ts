@@ -10,6 +10,8 @@ import { ProductDetailsComponent } from './home/product-details/product-details.
 import { DetalhesProdutoComponent } from './detalhes-produto/detalhes-produto.component';
 import { ProdutosCategoriaComponent } from './produtos-categoria/produtos-categoria.component';
 import { CardProdutoComponent } from './card-produto/card-produto.component';
+import { FormsModule } from '@angular/forms';
+import { CampoPesquisaComponent } from './campo-pesquisa/campo-pesquisa.component';
 
 @NgModule({
   declarations: [
@@ -18,12 +20,14 @@ import { CardProdutoComponent } from './card-produto/card-produto.component';
     ProductDetailsComponent,
     DetalhesProdutoComponent,
     ProdutosCategoriaComponent,
-    CardProdutoComponent
+    CardProdutoComponent,
+    CampoPesquisaComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
     
   ],
   providers: [],

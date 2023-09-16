@@ -4,6 +4,33 @@ img {
 }
 
 .card-produto {
-    display: flex;
+    display:flex;
     flex-direction: column;
+    border: solid 1px #A9A9A9;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    width: 300px;
+    padding: 10px;
+    align-items: center;
+}
+
+.titulo-produto {
+    font-size: 20px;
+    font-weight: 700;
+    color: #0039a6;
+}
+
+.titulo-produto:hover {
+    color: #002244;
+    cursor: pointer;
+}
+
+.descricao-produto {
+    text-align: justify;
+}
+
+.preco {
+    color: green;
+    font-weight: 700;
+    font-size: 24px;
 }

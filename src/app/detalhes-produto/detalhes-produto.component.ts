@@ -15,10 +15,16 @@ export class DetalhesProdutoComponent implements OnInit {
 
   loading:boolean = false;
 
+  tiposProduto:any;
+  idTipoProduto:any = "";
+  preco:any;
+  precoOriginal:any;
+
   constructor(private service:LojaService, private rota:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.buscarProduto();
+    //this.selecionarPreco();
   }
 
   buscarProduto(){
@@ -27,11 +33,27 @@ export class DetalhesProdutoComponent implements OnInit {
     this.service.buscarProduto(id).subscribe(
       (data) => {
         this.produto = data.data;
+        this.tiposProduto = this.produto.variants
         console.log(this.produto);
-        this.loading = false
+        console.log(this.tiposProduto);
+        this.loading = false;
+        this.selecionarPreco();
       }
     )
     console.log(id)
+  }
+
+  selecionarPreco(){
+    if(this.idTipoProduto == ""){
+      this.idTipoProduto = this.tiposProduto[0]
+    }
+    this.preco = this.idTipoProduto.price;
+    this.precoOriginal = this.idTipoProduto.originalPrice;
+    
+    // console.log(this.idTipoProduto);
+    // console.log("oi");
+    
+    // console.log(this.preco);
   }
 
 }

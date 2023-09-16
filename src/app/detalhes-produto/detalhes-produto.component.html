@@ -1,9 +1,17 @@
 <div *ngIf="loading == false">
-    <div style="display:flex; flex-direction:column">
+    <div style="display:flex; flex-direction:row;">
         <img [src]="produto.imageUrl">
-        <span>{{produto.title}}</span>
-        <span>{{produto.description}}</span>
-        <span>{{produto.price}}</span>
+        <div class="detalhes">
+            <span class="titulo-produto">{{produto.title}}</span>
+            <span style="margin-bottom:10px;">{{produto.description}}</span>
+            <span *ngIf="precoOriginal > preco" class="preco-original">{{precoOriginal.toFixed(2)}}</span>
+            <span class="preco">{{preco.toFixed(2)}}</span>
+            <select class="selecionar-tipo" *ngIf="produto.variants.length > 1" type="number" [(ngModel)]="idTipoProduto" (change)="selecionarPreco()">
+                <option *ngFor="let tipoProduto of produto.variants" [ngValue]="tipoProduto">{{tipoProduto.productType.name}}</option>
+            </select>
+            
+        </div>
+        
     </div>
 </div>
 

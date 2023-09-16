@@ -17,6 +17,7 @@ export class ProdutosCategoriaComponent implements OnInit {
   routeChangeSubscription!:Subscription;
 
   teste!:string
+  pesquisa:string = '';
 
   loading:boolean = false;
   
@@ -56,6 +57,10 @@ export class ProdutosCategoriaComponent implements OnInit {
     console.log(categoria);
     //console.log(categoria);
     this.buscarProdutosPorCategoria(categoria);
+  }
+
+  pesquisarProduto(produtoPesquisado:any){
+    this.pesquisa = produtoPesquisado;
   }
 
 }

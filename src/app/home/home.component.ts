@@ -11,8 +11,15 @@ import { ServiceResponse } from '../shared/serviceResponse';
 export class HomeComponent implements OnInit {
 
   produtos!:ServiceResponse;
+
+  produtosFiltrados:any;
   
   loading:boolean = false;
+
+  precoMinimo!:any;
+  variantesProdutos!:any;
+
+  pesquisa:string = '';
 
   constructor(private service:LojaService, private router:Router) { }
 
@@ -24,8 +31,8 @@ export class HomeComponent implements OnInit {
     this.loading = true;
     this.service.listarProdutos().subscribe(
       (data) => {
-        this.produtos = data
-        //console.log(this.produtos)
+        this.produtos = data;
+        this.produtosFiltrados = data;
         this.loading = false;
       }
     )
@@ -35,4 +42,18 @@ export class HomeComponent implements OnInit {
     this.router.navigate([`detalhes-produto/${id}`])
   }
 
+  pegarPrecoMinimo(tiposProduto:any){
+    if(tiposProduto.length == 0){
+      return null;
+    }
+    else if (tiposProduto.length == 1){
+      return tiposProduto[0].price;
+    }
+    let precoMinimo = Math.min(...tiposProduto.map(((tipo:any) => tipo.price)));
+    return precoMinimo
+  }
+
+  pesquisarProduto(produtoPesquisado:any){
+    this.pesquisa = produtoPesquisado;
+  }
 }

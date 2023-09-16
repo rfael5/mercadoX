@@ -1,6 +1,6 @@
-<div class="card-produto">
+<div class="card-produto" (click)="goToProduct(produto.id)">
     <img [src]="produto.imageUrl">
-    <span>{{produto.title}}</span>
-    <span>{{produto.description}}</span>
-    <span>{{produto.price}}</span>
+    <span class="titulo-produto">{{produto.title}}</span>
+    <span class="descricao-produto">{{produto.description}}</span>
+    <span class="preco">À partir de {{pegarPrecoMinimo(produto.variants)}}</span>
 </div>

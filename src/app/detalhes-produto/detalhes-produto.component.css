@@ -1,4 +1,34 @@
 img {
-    max-width: 500px;
-    min-width: 500px;
+    max-width: 300px;
+    min-width: 300px;
+}
+
+.detalhes {
+    display: flex;
+    flex-direction: column;
+    padding-left: 17px;
+}
+
+.titulo-produto {
+    font-size: 27px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.preco {
+    color: green;
+    font-weight: 700;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.preco-original {
+    color:#A9A9A9;
+    text-decoration: line-through;
+}
+
+.selecionar-tipo {
+    height: 40px;
+    width: 350px;
+    border-radius: 4px;
 }
