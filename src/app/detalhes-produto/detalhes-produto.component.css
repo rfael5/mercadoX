@@ -31,4 +31,20 @@ img {
     height: 40px;
     width: 350px;
     border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.btn-carrinho {
+    width: 250px;
+    height: 45px;
+    background: #2a52be;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.btn-carrinho:hover{
+    cursor:pointer;
 }

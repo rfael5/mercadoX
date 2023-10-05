@@ -12,6 +12,8 @@ import { ProdutosCategoriaComponent } from './produtos-categoria/produtos-catego
 import { CardProdutoComponent } from './card-produto/card-produto.component';
 import { FormsModule } from '@angular/forms';
 import { CampoPesquisaComponent } from './campo-pesquisa/campo-pesquisa.component';
+import { CarrinhoComponent } from './carrinho/carrinho.component';
+import { CadastrarUsuarioComponent } from './cadastrar-usuario/cadastrar-usuario.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { CampoPesquisaComponent } from './campo-pesquisa/campo-pesquisa.componen
     DetalhesProdutoComponent,
     ProdutosCategoriaComponent,
     CardProdutoComponent,
-    CampoPesquisaComponent
+    CampoPesquisaComponent,
+    CarrinhoComponent,
+    CadastrarUsuarioComponent
   ],
   imports: [
     BrowserModule,

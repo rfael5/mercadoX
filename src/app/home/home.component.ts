@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LojaService } from '../shared/loja.service';
 import { Route, Router } from '@angular/router';
 import { ServiceResponse } from '../shared/serviceResponse';
+import { CarrinhoService } from '../shared/carrinho.service';
 
 @Component({
   selector: 'app-home',
@@ -21,10 +22,13 @@ export class HomeComponent implements OnInit {
 
   pesquisa:string = '';
 
-  constructor(private service:LojaService, private router:Router) { }
+  qtdProdutosCarrinho!:number;
+
+  constructor(private service:LojaService, private router:Router, public carrinhoService:CarrinhoService) { }
 
   ngOnInit(): void {
     this.listarProdutos()
+    this.buscarQtdProdutosCarrinho();
   }
 
   listarProdutos(){
@@ -55,5 +59,10 @@ export class HomeComponent implements OnInit {
 
   pesquisarProduto(produtoPesquisado:any){
     this.pesquisa = produtoPesquisado;
+  }
+
+  buscarQtdProdutosCarrinho(){
+    this.carrinhoService.inicializarCarrinho()
+    console.log(this.carrinhoService.qtdProdutosCarrinho);
   }
 }

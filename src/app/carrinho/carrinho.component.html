@@ -1,0 +1,21 @@
+<div>     
+    <table style="width: 100%;" class="infos" >
+        <tbody *ngFor="let produto of itensCarrinho">
+                <tr class="info-tr">
+                    <td style="width:10%; padding-left: 5px;"><img [src]="produto.cartItemImg" style="max-width:50px; max-height: 82.5px;" /></td>
+                    <td style="width:10%;">
+                        <input #newQuantity class="input-qtt" type="number" [value]="produto.quantity" (change)="atualizarQtdProduto(produto, newQuantity.value)" />
+                        <!-- {{produto.quantity}}x -->
+                    </td>
+                    <td (click)="verDetalhesProduto(produto.productId)" class="item-name" style="width: 35%;">{{produto.cartItemName}}</td>
+                    <td style="width: 15%;">{{produto.cartItemTypeName}}</td>
+                    <td style="width: 10%;">{{produto.price}}</td>
+                    <td style="width: 10%;">{{produto.totalPrice}}</td>
+                    <td style="width: 10%;">
+                        <button class="btn-remove" (click)="removerItem(produto.id)"><i style="padding-right:5px;" class="fas fa-trash"></i> <span>Remover</span></button>
+                    </td>
+                </tr>
+        </tbody>
+    </table>
+</div>
+

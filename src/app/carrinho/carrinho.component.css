@@ -1,0 +1,83 @@
+.infos {
+    border: solid 1px #A9A9A9;
+    border-radius: 10px !important;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.info-tr {
+    border-bottom: 1px solid #A9A9A9;
+    padding-left: 7px;
+    height: 110px;
+}
+
+.item-name {
+    text-align: center;
+}
+
+.item-name:hover {
+    cursor: pointer;
+    color:#00308F;
+    font-weight: 600;
+}
+
+.infos td {
+    font-size: 18px;
+}
+
+.qtd {
+    padding-left: 17px;
+    margin-right: 17px;
+}
+
+.nome-produto {
+    margin-right: 27px;
+}
+
+.preco {
+    
+    display:flex;
+    background:blue;
+    
+    justify-self:flex-end;
+}
+
+.btn-remove {
+    background-color:#FF0000; 
+    border:none; 
+    height:40px; 
+    border-radius:4px;
+}
+
+.btn-remove:hover {
+    cursor:pointer;
+}
+
+.input-qtt {
+    height:40px;
+}
+
+/* Estilize os botões de setas */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    /* -webkit-appearance: none;
+    appearance: none;
+    background-color: #ccc;
+    border: 1px solid #ccc;
+    border-radius: 3px; */
+    font-size: 12px;
+    width: 30px; /* Ajuste o tamanho conforme necessário */
+    height: 30px; /* Ajuste o tamanho conforme necessário */
+    margin-right: 2px;
+    cursor: pointer;
+}
+
+/* Estilize a seta para cima */
+input[type="number"]::-webkit-inner-spin-button:after {
+    content: "\25B2"; /* Código unicode para uma seta para cima */
+}
+
+/* Estilize a seta para baixo */
+input[type="number"]::-webkit-outer-spin-button:after {
+    content: "\25BC"; /* Código unicode para uma seta para baixo */
+}

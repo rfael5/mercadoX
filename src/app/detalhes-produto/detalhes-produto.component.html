@@ -9,7 +9,11 @@
             <select class="selecionar-tipo" *ngIf="produto.variants.length > 1" type="number" [(ngModel)]="idTipoProduto" (change)="selecionarPreco()">
                 <option *ngFor="let tipoProduto of produto.variants" [ngValue]="tipoProduto">{{tipoProduto.productType.name}}</option>
             </select>
-            
+
+            <input style="margin-bottom:15px; height:40px; width: 350px;" type="number" min="1" max="100" [(ngModel)]="qtdProduto" (change)="selecionarQuantidade()" />
+
+            <button class="btn-carrinho" (click)="adicionarAoCarrinho(produto)">Adicionar ao carrinho <i class="cart-icon" class="fas fa-shopping-cart"></i></button>
+            <!-- <button (click)="teste(produto)">VER ITENS</button> -->
         </div>
         
     </div>

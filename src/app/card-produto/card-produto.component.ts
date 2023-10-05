@@ -13,7 +13,6 @@ export class CardProdutoComponent implements OnInit {
   constructor(private router:Router) { }
 
   ngOnInit(): void {
-    console.log(this.produto)
   }
 
   goToProduct(id:number){

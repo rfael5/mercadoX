@@ -8,4 +8,5 @@ export interface Produto {
     preco:number
     categoria:Categoria
     idCategoria:number
+    variants:any[];
 }
