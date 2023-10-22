@@ -1,0 +1,31 @@
+<div class="pg-cadastro">
+    <div>
+        <h2>
+            Login
+        </h2>
+    </div>
+    <form [formGroup]="formularioLogin" (submit)="setarDadosLogin()">
+        <div class="input-container">
+            <label>E-Mail</label>
+            <input formControlName="email" />
+            <!-- <small style="color:red" 
+                *ngIf="cadastroUsuario.controls['email'].invalid && cadastroUsuario.controls['email'].dirty">
+                    Por favor, digite um e-mail válido.
+            </small> -->
+        </div>
+
+        <div class="input-container">
+            <label>Password</label>
+            <input formControlName="password" type="password" />
+            <!-- <small style="color:red" 
+                *ngIf="cadastroUsuario.controls['password'].invalid && cadastroUsuario.controls['password'].dirty">
+                    Digite uma senha de no mínimo 6 digitos.
+            </small> -->
+        </div>
+
+        <button class="btn-login" type="submit">Login</button>
+        
+    </form>
+
+    <span *ngIf="erroLogin == true" style="color:red; padding-top: 15px;">Email ou senha errados.</span>
+</div>

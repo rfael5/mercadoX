@@ -4,6 +4,8 @@ import { ServiceResponse } from './shared/serviceResponse';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LojaService } from './shared/loja.service';
 import { CarrinhoService } from './shared/carrinho.service';
+import { AutenticacaoService } from './shared/autenticacao.service';
+import { tap } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -16,15 +18,17 @@ export class AppComponent {
   categorias!:ServiceResponse;
 
   loading:boolean = false;
+  sessao!:boolean;
 
   constructor(
     private categoriaService:CategoriaService,
     public carrinhoService:CarrinhoService,
+    public authService:AutenticacaoService,
     private router:Router) {}
 
   ngOnInit():void {
     this.listarCategorias();
-    this.listarQtdProdutosCarrinho();
+    //this.listarQtdProdutosCarrinho();
   }
 
   listarCategorias(){
@@ -41,8 +45,8 @@ export class AppComponent {
     this.router.navigate([`/produtos/${pagina}`]);
   }
 
-  navegarParaCarrinho():void{
-    this.router.navigate(['carrinho']);
+  navegarPara(pagina:string):void{
+    this.router.navigate([`${pagina}`]);
   }
 
   buscarQtdProdutosCarrinho(){
@@ -51,8 +55,26 @@ export class AppComponent {
   }
 
   listarQtdProdutosCarrinho(){
-    this.carrinhoService.listarItensCarrinho().subscribe(
+    this.carrinhoService.buscarProdutosUsuario().subscribe(
       () => this.carrinhoService.atualizarQtdCarrinho()
     );
+  }
+
+  checarSessao(){
+    this.authService.isLoggedIn.pipe(
+      tap((isLogged:boolean) => {
+        if(isLogged){
+          return true;
+        }else {
+          return false;
+        }
+      })
+    )
+  }
+
+  logout(){
+    this.authService.logout();
+    this.carrinhoService.qtdProdutosCarrinho = 0
+    this.router.navigate(['login']);
   }
 }

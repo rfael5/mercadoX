@@ -4,7 +4,7 @@
                 <tr class="info-tr">
                     <td style="width:10%; padding-left: 5px;"><img [src]="produto.cartItemImg" style="max-width:50px; max-height: 82.5px;" /></td>
                     <td style="width:10%;">
-                        <input #newQuantity class="input-qtt" type="number" [value]="produto.quantity" (change)="atualizarQtdProduto(produto, newQuantity.value)" />
+                        <input #newQuantity class="input-qtt" type="number" min="1" max="100" [value]="produto.quantity" (change)="atualizarQtdProduto(produto, newQuantity.value)" />
                         <!-- {{produto.quantity}}x -->
                     </td>
                     <td (click)="verDetalhesProduto(produto.productId)" class="item-name" style="width: 35%;">{{produto.cartItemName}}</td>

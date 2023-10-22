@@ -69,15 +69,6 @@ export class DetalhesProdutoComponent implements OnInit {
   }
 
   inserirProdutoCarrinho(produto:any){
-    /* 
-    productId: number,    
-    productTypeId?: number,
-    cartItemName: string,
-    cartItemImg: string,
-    cartItemTypeName: string,   
-    price: number,
-    quantity: number
-    */
     this.produtoCarrinho = {
       productId: produto.id,
       productTypeId: this.idTipoProduto.productTypeId,
@@ -92,7 +83,8 @@ export class DetalhesProdutoComponent implements OnInit {
     this.carrinhoService.inserirItensCarrinho(this.produtoCarrinho).pipe(
       tap(() => this.carrinhoService.atualizarQtdCarrinho())
     ).subscribe()
-    console.log(this.produtoCarrinho);
+    //console.log(this.produtoCarrinho);
+    console.log('cadastrou');
   }
 
   adicionarAoCarrinho(produto:any){

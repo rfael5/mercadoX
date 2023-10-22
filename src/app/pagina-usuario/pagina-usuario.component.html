@@ -1,0 +1,39 @@
+<h2 style="padding-left:15px;">Olá! Você está logado como {{nomeUsuario}}.</h2>
+
+<div class="pg-cadastro">
+    <div>
+        <h2>
+            Mudar senha
+        </h2>
+    </div>
+    <form [formGroup]="formMudarSenha" (submit)="validarFormulario()">
+        <div class="input-container">
+            <label>Nova senha</label>
+            <input formControlName="newPassword" />
+            <!-- <small style="color:red" 
+                *ngIf="cadastroUsuario.controls['email'].invalid && cadastroUsuario.controls['email'].dirty">
+                    Por favor, digite um e-mail válido.
+            </small> -->
+        </div>
+
+        <div class="input-container">
+            <label>Confirmar nova senha</label>
+            <input formControlName="confirmNewPassword" type="password" />
+            <!-- <small style="color:red" 
+                *ngIf="cadastroUsuario.controls['password'].invalid && cadastroUsuario.controls['password'].dirty">
+                    Digite uma senha de no mínimo 6 digitos.
+            </small> -->
+        </div>
+
+        <button class="btn-login" type="submit">Mudar senha</button>
+        
+    </form>
+
+    <span *ngIf="erroValidacaoSenha == true" style="color:red; padding-top: 15px;">
+        Senha invalida. A senha deve ter no mínimo 6 dígitos
+    </span>
+
+    <span *ngIf="erroConfirmacaoSenha == true" style="color:red; padding-top: 15px;">
+        Os dois campos de senha não são iguais. Por favor, confirme a senha para prosseguir.
+    </span>
+</div>

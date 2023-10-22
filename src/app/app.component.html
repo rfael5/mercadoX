@@ -1,45 +1,38 @@
 <header>
 
-  <div *ngIf="!loading" class="cabecalho">
-    <div class="nav-item">
-      <a routerLink="/">
-        Home
-      </a>
-    </div>
-    
-    <div *ngFor="let categoria of categorias.data" class="nav-item">
-      <a (click)="navegarParaPagina(categoria.url)">
-        {{categoria.name}}
-      </a>
-    </div>
+    <div *ngIf="!loading" class="cabecalho">
+      <div class="nav-item">
+        <a routerLink="/">
+          Home
+        </a>
+      </div>
+      
+      <div *ngFor="let categoria of categorias.data" class="nav-item">
+        <a (click)="navegarParaPagina(categoria.url)">
+          {{categoria.name}}
+        </a>
+      </div>
+  
+      <button class="btn-menu" mat-button [matMenuTriggerFor]="belowMenu"><i class="fas fa-user fa-lg"></i></button>
 
-    <div class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Dropdown button
-      </button>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">Action</a></li>
-        <li><a class="dropdown-item" href="#">Another action</a></li>
-        <li><a class="dropdown-item" href="#">Something else here</a></li>
-      </ul>
-    </div>
-    <!-- <div class="dropdown">
-      <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Dropdown link
-      </a>
-    
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">Action</a></li>
-        <li><a class="dropdown-item" href="#">Another action</a></li>
-        <li><a class="dropdown-item" href="#">Something else here</a></li>
-      </ul>
-    </div> -->
+        <mat-menu #belowMenu="matMenu" yPosition="below">
+          <div *ngIf="!authService.validarSessao()">
+            <button mat-menu-item (click)="navegarPara('cadastrar-usuario')">Register</button>
+            <button mat-menu-item (click)="navegarPara('login')">Login</button>
+          </div>
 
-    <div class="cart-container" (click)="navegarParaCarrinho()">
-      <i class="cart-icon" class="fas fa-shopping-cart"></i>
-      <span class="cart-count">{{carrinhoService.qtdProdutosCarrinho}}</span>
-    </div>
-  </div>
+          <div *ngIf="authService.validarSessao()">
+            <button mat-menu-item (click)="navegarPara('perfil')">Perfil</button>
+            <button mat-menu-item (click)="logout()">Sair</button>
+          </div>
+          
+        </mat-menu>      
+  
+      <div class="cart-container" (click)="navegarPara('carrinho')">
+        <i class="cart-icon" class="fas fa-shopping-cart"></i>
+        <span class="cart-count">{{carrinhoService.qtdProdutosCarrinho}}</span>
+      </div>
+    </div>  
 
 </header>
 

@@ -26,13 +26,14 @@ export class CarrinhoComponent implements OnInit {
   ngOnInit(): void {
     //JSON.parse(this.carrinho);
     //console.log(this.carrinho);
-    this.listarItensCarrinho();
+    //this.listarItensCarrinho();
+    this.listarProdutosUsuario();
   }
 
   listarItensCarrinho(){
     this.carrinhoService.listarItensCarrinho().subscribe(
       (dados) => {
-        this.itensCarrinho = dados.data;
+        //this.itensCarrinho = dados.data;
         this.carrinhoService.atualizarQtdCarrinho();
       }
     );
@@ -45,7 +46,7 @@ export class CarrinhoComponent implements OnInit {
   removerItem(id:number){
     this.carrinhoService.removerItemCarrinho(id)
     .pipe(
-      tap(() => this.listarItensCarrinho())
+      tap(() => this.listarProdutosUsuario())
     ).subscribe();
   }
 
@@ -65,6 +66,14 @@ export class CarrinhoComponent implements OnInit {
       .pipe(
         tap(() => this.listarItensCarrinho())
       ).subscribe();
+  }
+
+  listarProdutosUsuario(){
+    this.carrinhoService.buscarProdutosUsuario().subscribe(
+      (data) => {
+        this.itensCarrinho = data.data;
+        this.carrinhoService.atualizarQtdCarrinho();
+      });
   }
 
 }

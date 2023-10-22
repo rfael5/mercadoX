@@ -2,10 +2,6 @@
     Carregando produtos...
 </div>
 
-<!-- <div>
-    <input [(ngModel)]="pesquisa" />
-</div> -->
-
 <app-campo-pesquisa (emitirValor)="pesquisarProduto($event)"></app-campo-pesquisa>
 
 <div class="lista-produtos" *ngIf="loading == false">

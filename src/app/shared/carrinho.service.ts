@@ -36,7 +36,7 @@ export class CarrinhoService {
   }
 
   atualizarQtdCarrinho(){
-    this.listarItensCarrinho().subscribe(
+    this.buscarProdutosUsuario().subscribe(
       (dados) => {
         const qtdTotal = dados.data.reduce((total:number, produto:any) => total + produto.quantity, 0);
         this.qtdProdutosCarrinho = qtdTotal;
@@ -62,5 +62,9 @@ export class CarrinhoService {
 
   atualizarQtdItens(id:number, produto:ProdutoCarrinho):Observable<any>{
     return this.http.post<ProdutoCarrinho>(`${this.url}atualizar-qtd/${id}`, produto);
+  }
+
+  buscarProdutosUsuario():Observable<any>{
+    return this.http.get<any>(`${this.url}buscar-carrinho-usuario`);
   }
 }

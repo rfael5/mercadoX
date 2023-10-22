@@ -4,21 +4,35 @@
             Register
         </h2>
     </div>
-    <form>
+    <form [formGroup]="cadastroUsuario" (submit)="validarFormulario()">
         <div class="input-container">
             <label>E-Mail</label>
-            <input />
+            <input formControlName="email" />
+            <small style="color:red" 
+                *ngIf="cadastroUsuario.controls['email'].invalid && cadastroUsuario.controls['email'].dirty">
+                    Por favor, digite um e-mail válido.
+            </small>
         </div>
 
         <div class="input-container">
             <label>Password</label>
-            <input />
+            <input type="password" formControlName="password" />
+            <small style="color:red" 
+                *ngIf="cadastroUsuario.controls['password'].invalid && cadastroUsuario.controls['password'].dirty">
+                    Digite uma senha de no mínimo 6 digitos.
+            </small>
         </div>
 
         <div class="input-container">
             <label>Confirm Password</label>
-            <input />
+            <input type="password" formControlName="confirmPassword" />
+            <small style="color:red" 
+                *ngIf="cadastroUsuario.controls['confirmPassword'].invalid && cadastroUsuario.controls['confirmPassword'].dirty">
+                    Confirme a senha.
+            </small>
         </div>
+
+        <button class="btn-cadastro" type="submit">Cadastrar</button>
         
     </form>
 </div>
